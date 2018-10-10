@@ -1,22 +1,25 @@
+int sum; 
 void setup()
 {
   noLoop();
-  size(300, 300);
+  size(300, 340);
 }
 void draw()
 {
-  for(int r = 20; r <= 270; r += 30){
-    for(int c = 20; c <= 270; c += 30){
+  background(197);
+  for(int r = 15; r <= 270; r += 30){
+    for(int c = 15; c <= 270; c += 30){
       Die one = new Die(c,r);
       one.show();
       one.roll();
     }
   }
-  
+  text("sum: "+ sum, width/2, 320);
 }
 void mousePressed()
 {
   redraw();
+  sum = 0;
 }
 class Die //models one single dice cube
 {
@@ -24,7 +27,6 @@ class Die //models one single dice cube
   int myX;
   int myY;
   int myNum;
-  int sum; 
   Die(int x, int y) //constructor
   {
     //variable initializations here
